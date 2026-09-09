@@ -59,7 +59,7 @@ namespace labyrinth_gen
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) //solve
+        private async void button2_Click(object sender, EventArgs e) //solve
         {
             (int, int, int)[,] aStarMaze = new (int, int, int)[size - 2, size - 2];
             HashSet<(int, int)> openSet = new HashSet<(int, int)>();
@@ -70,7 +70,7 @@ namespace labyrinth_gen
             aStarMaze[tmpXY.Item1, tmpXY.Item2] = (tmpXY.Item1, tmpXY.Item2, 0);
             
 
-            void restorePath()
+            async void restorePath()
             {
                 Debug.WriteLine("Succes");
                 Graphics g = pictureBox1.CreateGraphics();
@@ -81,7 +81,7 @@ namespace labyrinth_gen
                 {
                     if (next != startPos && next != endPos)
                     {
-                        Thread.Sleep(25);
+                        await Task.Delay(25);
                         g.FillRectangle(truePath, (next.Item1 + 1) * cellSize, (next.Item2 + 1) * cellSize, cellSize, cellSize);
                     }
                     next = (aStarMaze[next.Item1, next.Item2].Item1, aStarMaze[next.Item1, next.Item2].Item2);
@@ -99,7 +99,7 @@ namespace labyrinth_gen
             {
                 if (tmpXY != startPos && tmpXY != endPos)
                 {
-                    Thread.Sleep(3);
+                    await Task.Delay(2);
                     g.FillRectangle(pathTemp, (tmpXY.Item1 + 1) * cellSize, (tmpXY.Item2 + 1) * cellSize, cellSize, cellSize);
                 }
                 //Debug.WriteLine(tmpXY);
