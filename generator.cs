@@ -8,10 +8,11 @@ namespace labyrinth_gen
     internal class Generator
     {
         
-        public static bool[,] Create(int size, int seed)
+        public static bool[,] Create(int size, int seed) //prim's algo
         {
             int[] startPoint = [0, 0]; // x,y
             
+
             Random rnd = new Random(); //сюда можно вставить seed
             List<(int, int)> list = new List<(int, int)>();
             bool[,] maze = new bool[size, size];

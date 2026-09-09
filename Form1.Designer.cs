@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -37,9 +38,9 @@
             // 
             button1.Location = new Point(12, 494);
             button1.Name = "button1";
-            button1.Size = new Size(450, 61);
+            button1.Size = new Size(206, 61);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "generate";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -50,12 +51,24 @@
             pictureBox1.Size = new Size(451, 451);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(256, 494);
+            button2.Name = "button2";
+            button2.Size = new Size(206, 61);
+            button2.TabIndex = 2;
+            button2.Text = "solve";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(474, 567);
+            Controls.Add(button2);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -70,5 +83,6 @@
 
         private Button button1;
         private PictureBox pictureBox1;
+        private Button button2;
     }
 }
